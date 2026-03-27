@@ -1,0 +1,146 @@
+:root {
+    --primary-red: #ff0000;
+    --dark-bg: #f4f4f9;
+    --white: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--dark-bg);
+    margin: 0;
+    color: #333;
+}
+
+
+.logo img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+
+header {
+    background-color: var(--primary-red);
+    color: var(--white);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    border-left: 8px solid #2ecc71;
+}
+
+.placa {
+    background: #222;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.status-indicator {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #2ecc71;
+    margin-right: 20px;
+}
+
+.admin-container { max-width: 1000px; }
+
+.tabela-admin {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    margin-top: 20px;
+}
+
+.tabela-admin th, .tabela-admin td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.tabela-admin th {
+    background-color: #333;
+    color: white;
+}
+
+.placa-pequena {
+    background: #e0e0e0;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-weight: bold;
+    border: 1px solid #ccc;
+}
+
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: white;
+}
+.status-badge.cadastrado { background-color: #2ecc71; }
+.status-badge.bloqueado { background-color: #e67e22; }
+.status-badge.procurado { background-color: #e74c3c; }
+
+.btn-novo, .btn-salvar, .link-voltar {
+    background-color: var(--white);
+    color: var(--primary-red);
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+.btn-salvar {
+    background-color: var(--primary-red);
+    color: var(--white);
+    width: 100%;
+    margin-top: 15px;
+    font-size: 1.1rem;
+}
+.btn-editar, .btn-excluir {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: white;
+}
+.btn-editar { background-color: #3498db; margin-right: 5px;}
+.btn-excluir { background-color: #e74c3c; }
+
+
+.form-card { flex-direction: column; align-items: stretch; border-left: none; }
+.form-group { margin-bottom: 15px; display: flex; flex-direction: column; }
+.form-group label { font-weight: bold; margin-bottom: 5px; color: #555; }
+.form-group input, .form-group select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}

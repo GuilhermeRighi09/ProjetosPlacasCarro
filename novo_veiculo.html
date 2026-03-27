@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Cadastro - SENAI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+    <img src="{{ url_for('static', filename='logosenai.png') }}" alt="Logo SENAI">
+</div>
+        <nav><a href="{{ url_for('listar_veiculos') }}" class="link-voltar">Voltar para a Lista</a></nav>
+    </header>
+
+    <main class="container">
+        <h2>Cadastrar Novo Veículo</h2>
+
+        <div class="card form-card">
+            <form action="{{ url_for('novo_veiculo') }}" method="POST">
+
+                <div class="form-group">
+    <label for="imagem">URL da Imagem do Veículo (Opcional):</label>
+    <input type="url" id="imagem" name="imagem" placeholder="Cole o link da imagem aqui">
+</div>
+                <div class="form-group">
+                    <label for="proprietario">Nome do Professor/Proprietário:</label>
+                    <input type="text" id="proprietario" name="proprietario" placeholder="Ex: Moisés" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="placa">Placa do Veículo:</label>
+                    <input type="text" id="placa" name="placa" placeholder="Ex: ABC1D23" maxlength="8" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="modelo">Modelo:</label>
+                    <input type="text" id="modelo" name="modelo" placeholder="Ex: Honda Civic" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cor">Cor:</label>
+                    <input type="text" id="cor" name="cor" placeholder="Ex: Prata" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="status">Status de Acesso:</label>
+                    <select id="status" name="status">
+                        <option value="Cadastrado">Cadastrado (Liberado)</option>
+                        <option value="Bloqueado">Bloqueado</option>
+                        <option value="Procurado">Procurado (Alerta)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-salvar">Salvar Cadastro</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
