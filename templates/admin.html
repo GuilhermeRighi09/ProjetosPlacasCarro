@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Estacionamento SENAI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+       <div class="logo">
+    <img src="{{ url_for('static', filename='logosenai.png') }}" alt="Logo SENAI">
+</div>
+        <nav style="display: flex; align-items: center; gap: 15px;">
+            <a href="{{ url_for('index') }}" style="text-decoration: none; color: white; margin-right: 10px;">← Voltar ao Monitoramento</a>
+
+            <a href="{{ url_for('novo_veiculo') }}" class="btn-novo">Cadastrar Novo</a>
+        </nav>
+    </header>
+
+    <main class="container admin-container">
+        <h2>Gerenciamento de Professores e Veículos</h2>
+
+        <table class="tabela-admin">
+            <thead>
+                <tr>
+                    <th>Foto</th> <th>ID</th>
+                    <th>Professor/Proprietário</th>
+                    <th>Placa</th>
+                    <th>Modelo</th>
+                    <th>Cor</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for v in veiculos %}
+                <tr>
+                    <td>
+                        {% if v.imagem %}
+                            <img src="{{ v.imagem }}" alt="Carro" width="50" style="border-radius: 5px;">
+                        {% else %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/3204/3204121.png" alt="Sem foto" width="50" style="opacity: 0.3;">
+                        {% endif %}
+                    </td>
+                    <td>{{ v.id }}</td>
+                    <td><strong>{{ v.proprietario }}</strong></td>
+                    <td><span class="placa-pequena">{{ v.placa }}</span></td>
+                    <td>{{ v.modelo }}</td>
+                    <td>{{ v.cor }}</td>
+                    <td><span class="status-badge {{ v.status|lower }}">{{ v.status }}</span></td>
+                    <td class="acoes">
+                        <a href="{{ url_for('editar_veiculo', id=v.id) }}" class="btn-editar" style="text-decoration: none; display: inline-block;">Editar</a>
+                        <form action="{{ url_for('deletar_veiculo', id=v.id) }}" method="POST" style="display:inline;">
+                            <button type="submit" class="btn-excluir" onclick="return confirm('Tem certeza que deseja excluir o registro de {{ v.proprietario }}?')">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="8" style="text-align: center; padding: 20px;">Nenhum veículo cadastrado no sistema.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
